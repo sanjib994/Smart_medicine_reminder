@@ -10,18 +10,73 @@ class MedicineCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 4,
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      child: ListTile(
-        leading: const CircleAvatar(child: Icon(Icons.medication)),
-        title: Text(medicine.name, style: const TextStyle(fontWeight: FontWeight.bold)),
-        subtitle: Text("${medicine.dosage} • ${medicine.time}"),
-        trailing: Icon(
-          medicine.isTaken ? Icons.check_circle : Icons.radio_button_unchecked,
-          color: medicine.isTaken ? Colors.green : Colors.grey,
+      elevation: 8,
+      margin: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      color: medicine.isTaken ? Colors.green.shade50 : Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                const Icon(Icons.medication, size: 40, color: Colors.blue),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        medicine.name,
+                        style: const TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Dosage: ${medicine.dosage}',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        'Time: ${medicine.time}',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.black87,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            SizedBox(
+              width: double.infinity,
+              height: 60,
+              child: ElevatedButton(
+                onPressed: onTap,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      medicine.isTaken ? Colors.green : Colors.blue,
+                  foregroundColor: Colors.white,
+                  textStyle: const TextStyle(
+                      fontSize: 24, fontWeight: FontWeight.bold),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+                child: Text(medicine.isTaken ? 'TAKEN' : 'MARK AS TAKEN'),
+              ),
+            ),
+          ],
         ),
-        onTap: onTap,
       ),
     );
   }

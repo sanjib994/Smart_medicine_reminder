@@ -1,11 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../providers/medicine_provider.dart';
 import 'reports_screen.dart';
 import 'add_medicine_screen.dart';
 import 'patient_profile_screen.dart';
 import 'manage_medicines_screen.dart';
+import 'caregiver_alerts_screen.dart';
 
-class CaregiverDashboard extends StatelessWidget {
+class CaregiverDashboard extends StatefulWidget {
   const CaregiverDashboard({super.key});
+
+  @override
+  State<CaregiverDashboard> createState() => _CaregiverDashboardState();
+}
+
+class _CaregiverDashboardState extends State<CaregiverDashboard> {
+  @override
+  void initState() {
+    super.initState();
+    // Check for missed doses
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<MedicineProvider>(context, listen: false)
+          .checkForMissedDoses();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +47,8 @@ class CaregiverDashboard extends StatelessWidget {
                 Colors.teal, const ManageMedicinesScreen()),
             _buildMenuCard(context, "View Reports", Icons.bar_chart,
                 Colors.orange, const ReportsScreen()),
+            _buildMenuCard(context, "Alerts", Icons.notifications, Colors.red,
+                const CaregiverAlertsScreen()),
             _buildMenuCard(
                 context, "Elder Monitor", Icons.visibility, Colors.green, null),
             _buildMenuCard(context, "Profile", Icons.person, Colors.purple,
