@@ -146,7 +146,7 @@ class SettingsScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   DropdownButtonFormField<String>(
-                    value: settingsProvider.language,
+                    initialValue: settingsProvider.language,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       contentPadding:
@@ -173,8 +173,8 @@ class SettingsScreen extends StatelessWidget {
           Card(
             elevation: 2,
             color: Colors.blue.shade50,
-            child: Padding(
-              padding: const EdgeInsets.all(16),
+            child: const Padding(
+              padding: EdgeInsets.all(16),
               child: Column(
                 children: [
                   Icon(
@@ -182,20 +182,20 @@ class SettingsScreen extends StatelessWidget {
                     size: 48,
                     color: Colors.blue,
                   ),
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12),
                   Text(
                     'Settings are saved automatically',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                       color: Colors.black87,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 8),
+                  SizedBox(height: 8),
                   Text(
                     'Changes will take effect immediately',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 14,
                       color: Colors.grey,
                     ),
