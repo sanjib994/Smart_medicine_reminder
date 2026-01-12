@@ -5,7 +5,7 @@ A comprehensive Flutter application designed to help elders manage their medicat
 
 ## Application Installation
 
-###App Path###
+**App Path**
 ```bash
 https://github.com/sanjib994/Smart_medicine_reminder/main/MEDIFIT.apk
 ```
