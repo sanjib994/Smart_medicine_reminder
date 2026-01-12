@@ -59,6 +59,17 @@ lib/
   - `MedicineHistoryProvider`: Medicine taken history
   - `AlertProvider`: Alert notifications
   - `SettingsProvider`: User preferences
+ 
+### Application Installation
+
+**App Path**
+```bash
+https://github.com/sanjib994/Smart_medicine_reminder/main/MEDIFIT.apk
+```
+1. Go to the Path
+2. Click on the *Download icon (Download raw file)* button at right-hand Side or click *view raw* in the center to download the application
+3. Install and open in Android
+
 
 ## 🚀 Getting Started
 
@@ -226,11 +237,12 @@ Contributions are welcome! Please follow these steps:
 
 ## 👥 Authors
 
-- Your Name - Initial work
+- Sanjib Ghara
+- Soumodip Ghosh
 
 ## 📞 Support
 
-For support, email support@smartmedicinereminder.com or open an issue on GitHub.
+For support, message us or open an issue on GitHub.
 
 ## 🙏 Acknowledgments
 
